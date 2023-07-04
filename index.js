@@ -6,14 +6,14 @@ class Cliente {
 
 class ContaCorrente {
     agencia;
-    saldo;
+    #saldo = 0;
     
     sacar(valorSaque){
-        if(this.saldo < valorSaque){
+        if(this.#saldo < valorSaque){
             console.log("Voce não pode sacar o dinheiro")
         }else {
-            this.saldo -= valorSaque;
-            console.log("Seu novo saldo é = " + this.saldo)
+            this.#saldo -= valorSaque;
+            console.log("Seu novo saldo é = " + this.#saldo)
         }
     }
 
@@ -21,9 +21,9 @@ class ContaCorrente {
         if(valorDeposito < 0){
             console.log("Você não pode depositar este valor")
         }else {
-            this.saldo += valorDeposito;
+            this.#saldo += valorDeposito;
             console.log("Deposito de " + valorDeposito + " depositado com sucesso!");
-            console.log("Seu novo saldo é = " + this.saldo);
+            console.log("Seu novo saldo é = " + this.#saldo);
         }
     }
 }
@@ -43,12 +43,10 @@ cliente2.rg = 999992999;
 
 //Atribuindo valor a conta corrente/
 const contaCorrenteRicardo = new ContaCorrente();
-contaCorrenteRicardo.saldo = 0;
 contaCorrenteRicardo.agencia = 1001;
 
-console.log(contaCorrenteRicardo.saldo);
-contaCorrenteRicardo.saldo = 300;
-console.log(contaCorrenteRicardo.saldo);
+
+
 let valorSacado = 200;
 let valorDepositado = 400;
 
@@ -59,7 +57,6 @@ contaCorrenteRicardo.depositar(valorDepositado);
 
 console.log(contaCorrenteRicardo);
 
-console.log(cliente1);
-console.log(cliente2);
+
 
 
